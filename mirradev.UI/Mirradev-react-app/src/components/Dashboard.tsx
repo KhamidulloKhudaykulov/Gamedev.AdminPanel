@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUsers, type Client } from "../services/clientsService";
 import { getCurrentTokenRate, updateTokenRate } from "../services/tokenRatesService";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
     const [clients, setClients] = useState<Client[]>();
@@ -8,8 +9,14 @@ const Dashboard = () => {
     const [tokenRate, setTokenRate] = useState("");
     const [updateToken, setUpdateToken] = useState("");
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchClients = async () => {
+            const token = localStorage.getItem("token");
+            if (token == "" || token == null){
+                navigate("/login");
+            }
             const users = await getUsers();
             setClients(users);
         };

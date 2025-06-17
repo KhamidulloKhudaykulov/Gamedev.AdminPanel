@@ -119,3 +119,4 @@
 /home/pop-ospop-os/Рабочий стол/mirradev/mirradev.back-end/src/Mirradev.Admin.Api/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Mirradev.Admin.Api.props
 /home/pop-ospop-os/Рабочий стол/mirradev/mirradev.back-end/src/Mirradev.Admin.Api/obj/Debug/net8.0/staticwebassets.pack.json
 /home/pop-ospop-os/Рабочий стол/mirradev/mirradev.back-end/src/Mirradev.Admin.Api/obj/Debug/net8.0/Mirradev.Admin.Api.csproj.CopyComplete
+/home/pop-ospop-os/Рабочий стол/mirradev/mirradev.back-end/src/Mirradev.Admin.Api/obj/Debug/net8.0/Mirradev.Admin.Api.sourcelink.json

@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import { getPayments } from "../services/paymentsService";
 import { type Payment } from "../services/paymentsService";
+import { useNavigate } from "react-router-dom";
 
 const Payments = () => {
     const [payments, setPayments] = useState<Payment[]>([]);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchTokenRate = async () => {
+            const token = localStorage.getItem("token");
+            if (token == "" || token == null){
+                navigate("/login");
+            }
             const response = await getPayments();
             setPayments(response);
         };

@@ -64,7 +64,7 @@ public static class DependencyInjection
                 policy.WithOrigins("http://localhost:5173")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
-                    .AllowCredentials(); // agar cookie yoki auth token yuborsangiz
+                    .AllowCredentials();
             });
         });
         
