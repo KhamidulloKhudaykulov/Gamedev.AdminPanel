@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: mirradev_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mirradevdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./mirradev.back-end/src/Mirradev.Admin.Api
+      dockerfile: Dockerfile
+    container_name: mirradev_api
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=mirradevdb;Username=postgres;Password=postgres
+    ports:
+      - "5108:80"
+
+  ui:
+    build:
+      context: ./mirradev.UI/Mirradev-react-app
+      dockerfile: Dockerfile
+    container_name: mirradev_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+volumes:
+  postgres-data:
+

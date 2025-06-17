@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/Mirradev.Admin.Api.props" />
+</Project>
